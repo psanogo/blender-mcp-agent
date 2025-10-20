@@ -1,0 +1,3 @@
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend # Add the path to your package.json

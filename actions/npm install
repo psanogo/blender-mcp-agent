@@ -1,0 +1,5 @@
+      - name: List files in the workspace
+        run: ls -la
+
+      - name: Install dependencies
+        run: npm install

@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # This part handles pushes to main
+  release:
+    types: [published] # This part handles new releases
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ... build steps might be here ...
+      # A common issue is that build steps required for releases
+      # are missing or different from the 'main' branch logic.
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public # Or wherever your site is built
